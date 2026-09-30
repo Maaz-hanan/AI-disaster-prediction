@@ -1,5 +1,6 @@
 #AI_chatbot.py
 # Enhanced Multi-Disaster and Travel Risk Prediction System with Advanced AI Integration
+import os
 import pandas as pd
 import numpy as np
 import joblib
@@ -181,7 +182,7 @@ class DisasterChatbot:
                 )
                 # Test API connection with fast model
                 response = self.client.chat.completions.create(
-                    model="nvidia/nemotron-nano-9b-v2:free",
+                    model="openrouter/free",
                     messages=[
                         {"role": "system", "content": "You are a helpful assistant specialized in disaster preparedness and risk assessment."},
                         {"role": "user", "content": "test"}
@@ -331,7 +332,7 @@ class DisasterChatbot:
             
             # Create chat completion with model context and conversation history
             completion = self.client.chat.completions.create(
-                model="nvidia/nemotron-nano-9b-v2:free",
+                model="openrouter/free",
                 messages=messages,
                 temperature=0.7,
                 max_tokens=500,
@@ -550,7 +551,7 @@ class AIGuidanceSystem:
             if isinstance(prediction_data, str):
                 # This is a what-if explanation prompt
                 completion = self.client.chat.completions.create(
-                    model="nvidia/nemotron-nano-9b-v2:free",
+                    model="openrouter/free",
                     messages=[{"role": "user", "content": prediction_data}],
                     max_tokens=self.max_tokens,
                     temperature=0.7
@@ -575,7 +576,7 @@ class AIGuidanceSystem:
             ]
             
             completion = self.client.chat.completions.create(
-                model="nvidia/nemotron-nano-9b-v2:free",
+                model="openrouter/free",
                 messages=messages,
                 max_tokens=self.max_tokens,
                 temperature=0.7
@@ -723,7 +724,7 @@ class MultiDisasterModelTrainer:
             """
             
             completion = ai_client.chat.completions.create(
-                model="nvidia/nemotron-nano-9b-v2:free", # Use a powerful model for this
+                model="openrouter/free", # Use a powerful model for this
                 messages=[
                     {"role": "system", "content": "You are a data science expert specializing in Indian climate and geology. You only output valid JSON."},
                     {"role": "user", "content": prompt}
