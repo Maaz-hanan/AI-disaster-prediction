@@ -7,3 +7,4 @@ requests
 geopy
 openai
 python-dotenv
+gunicorn
